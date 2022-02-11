@@ -1,0 +1,52 @@
+{% extends "./components/navBar.html" %}
+
+{% block title %}
+<title>หน้าแรก</title>
+{% endblock title %}
+
+{% block content %}
+    <h1>My name : {{data.name}}</h1> 
+    
+    <div class='variable-width'>
+        {% for imageList in imageList%}
+        <div class="card" style="width: 20rem; height: 20rem;">
+            <img src="{{url_for('static',filename = imageList)}}" class="img-thumbnail"  width="auto" >
+        </div>
+        {% endfor %}
+    </div>
+
+    <script
+      type="text/javascript"
+      src="//code.jquery.com/jquery-1.11.0.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="//code.jquery.com/jquery-migrate-1.2.1.min.js"
+    ></script>
+   
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+    ></script>
+    
+    <script type="text/javascript">
+        $('.variable-width').slick({
+          
+          infinite: true,
+          speed: 300,
+          slidesToShow: 1,
+          centerMode: true,
+          variableWidth: true,
+          autoplay: true,
+          autoplaySpeed: 2000,
+          //fade: true,
+          cssEase: 'linear'
+            
+        });
+    </script>
+{% endblock %}
