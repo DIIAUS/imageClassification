@@ -1,0 +1,20 @@
+{% extends "./components/navBar.html" %}
+
+{% block title %}
+<title>รูปทั้งหมด</title>
+{% endblock title %}
+
+{% block content %}
+
+
+<h1>ALL IMAGE</h1>
+{% for imageList in imageList %}
+    <img src="{{url_for('static',filename = imageList)}}" class="img-thumbnail" alt="{{imageList}}" width="250" height="250">
+{% endfor %}
+
+
+
+
+{% endblock%}
+
+
