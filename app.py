@@ -100,7 +100,7 @@ def upload_files():
 def all_image():
     path = './static/imagesUpload'
     dir = 'imagesUpload/'
-    #dir = 'image'
+    #dir = 'imagess'
     imageList = os.listdir(path)
     imageList = [dir + image for image in imageList]
     return render_template('all_images.html', imageList=imageList)
