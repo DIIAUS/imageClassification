@@ -19,18 +19,29 @@ import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 import tensorflow as tf
 import tensorflowjs as tfjs
-from keras.applications.xception import(preprocess_input, Xception,decode_predictions)
+#from keras.applications.xception import(preprocess_input, Xception,decode_predictions)
+from keras.applications.inception_resnet_v2 import(preprocess_input, InceptionResNetV2 ,decode_predictions)
 
 #Config model
-model = Xception(
-	    include_top=True,
-	    weights="imagenet",
-	    input_tensor=None,
-	    input_shape=None,
-	    pooling=None,
-	    classes=1000,
-	    classifier_activation="softmax",
-)
+# model = Xception(
+# 	    include_top=True,
+# 	    weights="imagenet",
+# 	    input_tensor=None,
+# 	    input_shape=None,
+# 	    pooling=None,
+# 	    classes=1000,
+# 	    classifier_activation="softmax"
+# )
+model = InceptionResNetV2(include_top=True,
+    weights="imagenet",
+    input_tensor=None,
+    input_shape=None,
+    pooling=None,
+    classes=1000,
+    classifier_activation="softmax"
+    )
+
+
 
 #This is main file
 app = Flask(__name__ )
@@ -57,7 +68,7 @@ def my():
 def showimage():
     return imageReturn()
 
-@app.route('/test/<name>')
+@app.route('/classImage/<name>')
 def test(name):
     headerName = name
     mainPath = "./static/classFolder/"
