@@ -1,0 +1,14 @@
+{% extends "./components/navBar.html" %}
+
+{% block title %}
+<title>{{headerName}}</title>
+{% endblock title %}
+
+{% block content %}
+    <h1>{{headerName}}</h1>
+    {% for image in file %}
+        <img src=".{{dir}}{{image}}" alt="{{image}}" class="img-thumbnail"  width="350" > 
+        <br>
+    {% endfor %}
+
+{% endblock %}

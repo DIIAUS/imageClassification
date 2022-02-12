@@ -1,0 +1,13 @@
+{% extends "./components/navBar.html" %}
+
+{% block title %}
+<title>เกี่ยวกับฉัน</title>
+{% endblock title %}
+
+{% block content %}
+    {% for nameClasss in nameClass %}
+        <!-- <a href="{{url_for('showimage')}}">{{nameClasss}}</a> -->
+        <a href="./test/{{nameClasss}}">{{nameClasss}}</a>
+        <br>
+    {% endfor %}
+{% endblock %}
